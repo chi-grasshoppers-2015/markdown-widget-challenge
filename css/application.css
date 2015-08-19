@@ -1,3 +1,7 @@
 .md-bold {
   font-weight: bold;
 }
+
+.md-italic {
+  font-style: italic;
+}
