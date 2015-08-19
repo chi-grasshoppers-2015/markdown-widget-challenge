@@ -5,6 +5,7 @@
   <title>Markdown Parser</title>
   <link rel="stylesheet" type="text/css" href="css/application.css">
   <script src="vendor/js/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="vendor/js/markdown.min.js"></script>
   <script src="controllers/markdown_controller.js"></script>
   <script src="models/markdown_parser.js"></script>
   <script src="views/markdown_view.js"></script>
@@ -13,7 +14,7 @@
 <body>
   <h2>Markdown Parser</h2>
   <form>
-    <textarea id="input-textarea"></textarea>
+    <textarea id="input-textarea" cols=80 rows=10></textarea>
   </form>
 
   <pre id="output">
