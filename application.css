@@ -1,0 +1,7 @@
+.rendered-md {
+  height: 600px;
+  width: 600px;
+  display: inline-block;
+  float: right;
+  border: 2px solid black;
+}
