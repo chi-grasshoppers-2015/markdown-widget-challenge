@@ -9,18 +9,23 @@ function Markdown() {
 
 Markdown.prototype.transform = function(content) {
 
-  var strings = content.split("\n");
-  for (var i = 0; i < strings.length; i++) {
-    // var strings_row = strings[i].split(" ")
-    // for (var j = 0; j < strings_row.length; j++) {
-    //   var newText = this.wordTransform(strings_row[j])
-    //   strings_row[j] = newText;
-    // }
-    // strings[i] = strings_row.join(" ");
-    newText = this.rowTransform(strings[i]);
-    strings[i] = newText;
-  };
-  return strings
+
+  html = markdown.toHTML(content)
+
+  // var strings = content.split("\n");
+  // for (var i = 0; i < strings.length; i++) {
+  //   // var strings_row = strings[i].split(" ")
+  //   // for (var j = 0; j < strings_row.length; j++) {
+  //   //   var newText = this.wordTransform(strings_row[j])
+  //   //   strings_row[j] = newText;
+  //   // }
+  //   // strings[i] = strings_row.join(" ");
+  //   newText = this.rowTransform(strings[i]);
+  //   strings[i] = newText;
+  // };
+  // return strings
+
+  return html;
 };
 
 Markdown.prototype.rowTransform = function(rawRow) {
