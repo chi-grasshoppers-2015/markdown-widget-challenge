@@ -7,5 +7,6 @@ function MarkDownWidget(textArea, renderArea) {
 MarkDownWidget.prototype.handleInput = function(event) {
   event.preventDefault();
   var inputText = event.target.value;
-  this.view.renderOutput(inputText);
+  var outputText = this.model.parse(inputText)
+  this.view.renderOutput(outputText);
 }
