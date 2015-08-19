@@ -24,26 +24,32 @@ Markdown.prototype.transform = function(content) {
 };
 
 Markdown.prototype.rowTransform = function(rawRow) {
-  if (rawRow.match(/[*]{2}.+?[*]{2}/) != null) {
-    var matchedWord = (/[*]{2}.+?[*]{2}/g).exec(rawRow);
+
+  var newRow = rawRow;
+
+  while (newRow.match(/[*]{2}.+?[*]{2}/) != null) {
+    var matchedWord = (/[*]{2}.+?[*]{2}/g).exec(newRow);
+    var input = matchedWord.input
     var start_index = matchedWord.index + 2
-    var end_index = matchedWord[0].length - 2
-    var newRow = rawRow.replace(matchedWord[0], "<strong>" + matchedWord[0].slice(start_index, end_index) + "</strong>")
-    return newRow
+    var end_index = matchedWord[0].length - 2 + start_index - 2
+    var newRow = newRow.replace(matchedWord[0], "<strong>" + input.slice(start_index, end_index) + "</strong>")
   }
-  else if (rawRow.match(/[*].+?[*]/) != null) {
-    var matchedWord = (/[*].+?[*]/g).exec(rawRow);
+
+  while (newRow.match(/[*].+?[*]/) != null) {
+    var matchedWord = (/[*].+?[*]/g).exec(newRow);
+    var input = matchedWord.input
     var start_index = matchedWord.index + 1
-    var end_index = matchedWord[0].length - 1
-    var newRow = rawRow.replace(matchedWord[0], "<em>" + matchedWord[0].slice(start_index, end_index) + "</em>")
+    var end_index = matchedWord[0].length - 1  + start_index - 1
+    var newRow = newRow.replace(matchedWord[0], "<em>" + input.slice(start_index, end_index) + "</em>")
   }
-  else if (rawRow.match(/[_].+?[_]/) != null) {
-    var matchedWord = (/[_].+?[_]/g).exec(rawRow);
+
+  while (newRow.match(/[_].+?[_]/) != null) {
+    var matchedWord = (/[_].+?[_]/g).exec(newRow);
+    var input = matchedWord.input
     var start_index = matchedWord.index + 1
-    var end_index = matchedWord[0].length - 1
-    var newRow = rawRow.replace(matchedWord[0], "<em>" + matchedWord[0].slice(start_index, end_index) + "</em>")
+    var end_index = matchedWord[0].length - 1 + start_index - 1
+    var newRow = newRow.replace(matchedWord[0], "<em>" + input.slice(start_index, end_index) + "</em>")
   }
-  else {
-    return rawRow
-  }
+
+  return newRow
 };
