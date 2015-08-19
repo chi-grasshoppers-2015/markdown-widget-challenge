@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Markdown Parser</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="controllers/markdown_controller.js"></script>
+  <script src="models/markdown_parser.js"></script>
+  <script src="views/markdown_view.js"></script>
+</head>
+
+<body>
+  <h2>Markdown Parser</h2>
+  <form>
+    <textarea id="input-textarea">
+
+    </textarea>
+  </form>
+
+  <section id="output">
+
+  </section>
+
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var model = new Parser();
+    var view = new View();
+    var controller = new Controller(model,view);
+
+    $("#input-textarea").on("input",controller.handleInput.bind(controller));
+  });
+</script>
+
+</html>
