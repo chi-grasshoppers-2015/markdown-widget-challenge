@@ -25,12 +25,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-
-    var model = new Parser();
-    var view = new View();
-    var controller = new Controller(model,view);
-
-    $("#input-textarea").on("input",controller.handleInput.bind(controller));
+    var widget = new MarkDownWidget('#input-textarea', '#output');
   });
 </script>
 

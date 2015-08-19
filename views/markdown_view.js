@@ -1,6 +1,7 @@
-function View() {
+function View(renderArea) {
+  this.renderArea = renderArea;
 }
 
 View.prototype.renderOutput = function(html) {
-  $('#output').html(html);
+  $(this.renderArea).html(html);
 }
